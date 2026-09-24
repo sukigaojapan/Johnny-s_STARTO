@@ -76,10 +76,10 @@ function home() {
   app.innerHTML = `
     <section class="screen start">
 
-      <h1>30代俳優、アイドル好き顔9選</h1>
+      <h1>傑尼斯、星達拓喜歡的顏9選</h1>
 
       <div class="sub">
-        男性
+        只有出道的，包含部分退社人士
       </div>
 
       <button class="btn" onclick="start()">
@@ -235,7 +235,7 @@ function secondRound(index) {
         ROUND 2｜本選
       </h2>
       <p class="sub" style="text-align:center">
-        第1位と第2位を順番に選んでください
+        請選擇第一和第二喜歡的人
       </p>
       <div class="grid">
         ${group.map(card).join("")}
@@ -475,7 +475,7 @@ function mergeRanking(left, right, callback) {
         </h2>
 
         <p class="sub" style="text-align:center">
-          どちらの顔が好き？
+          請選一位
         </p>
 
         <div class="grid">
@@ -530,7 +530,7 @@ function result(list) {
     <section class="screen">
 
       <h2 class="title">
-        30代俳優さん好き顔9選
+        傑尼斯、星達拓喜歡的顏9選
       </h2>
 
       <p class="sub" style="text-align:center">
@@ -556,7 +556,7 @@ function result(list) {
           class="btn"
           onclick="home()"
         >
-          もう一回やる
+          再玩一次
         </button>
 
       </div>
