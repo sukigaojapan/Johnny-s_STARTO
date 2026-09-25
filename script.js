@@ -107,8 +107,8 @@ function start() {
 
   const pool = shuffle(people);
 
-  for (let i = 0; i < pool.length; i += 4) {
-    groups.push(pool.slice(i, i + 4));
+  for (let i = 0; i < pool.length; i += 6) {
+    groups.push(pool.slice(i, i + 6));
   }
 
   pre(0);
