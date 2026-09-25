@@ -129,8 +129,8 @@ function pre(index) {
         ROUND 1｜予選
       </h2>
       <p class="sub" style="text-align:center">
-        6人の中から好きな顔を選んでください<br>
-        最大4人まで。0人でもOK。
+       請從6人中選擇喜歡的顏。<br>
+        一組最多選4人，不選也可以。
       </p>
       <div class="grid">
         ${group.map(card).join("")}
@@ -217,8 +217,8 @@ function secondRound(index) {
         ROUND 2｜本選
       </h2>
       <p class="sub" style="text-align:center">
-        4人の中から好きな顔を選んでください<br>
-        最大2人まで。0人でもOK。
+        請從4人中選擇喜歡的顏。<br>
+        一組最多選2人，不選也可以。
       </p>
       <div class="grid">
         ${group.map(card).join("")}
@@ -318,7 +318,7 @@ function finalBattle(candidates, top9) {
         ROUND 3｜最終選考
       </h2>
       <p class="sub" style="text-align:center">
-        どちらの顔が好き？
+        你最喜歡誰的顏？
       </p>
       <div class="grid">
         ${card(person1)}
