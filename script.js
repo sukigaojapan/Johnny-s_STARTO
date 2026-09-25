@@ -113,139 +113,30 @@ function start() {
 
   pre(0);
 }
-
-
-/* =========================
-   ROUND 1｜予選
-   ========================= */
-
-function pre(round) {
-
-  if (round >= groups.length) {
-
-    if (survivors.length < 2) {
-      result(survivors);
-      return;
-    }
-
-    finalists = [];
-
+// ====================
+// ROUND 1｜予選
+// ====================
+function pre(index) {
+  if (index >= groups.length) {
     secondRound(0);
-
     return;
   }
-
-  picked = [];
-
-  const group = groups[round];
-
+  const group = groups[index];
+  let selected = [];
   app.innerHTML = `
     <section class="screen">
-
       <h2 class="title">
         ROUND 1｜予選
       </h2>
-
       <p class="sub" style="text-align:center">
-        最大3人まで。0人でもOK。
-      </p>
-
-      <div class="grid">
-        ${group.map(card).join("")}
-      </div>
-
-      <div style="text-align:center">
-
-        <button
-          class="btn"
-          onclick="nextPre(${round})"
-        >
-          次へ
-        </button>
-
-      </div>
-
-    </section>
-  `;
-}
-
-
-/* =========================
-   ROUND 1 選擇
-   ========================= */
-
-window.pick = function(id) {
-
-  const el = document.querySelector("#p" + id);
-
-  if (!el) return;
-
-  if (picked.includes(id)) {
-
-    picked = picked.filter(x => x !== id);
-
-    el.classList.remove("selected");
-
-  } else if (picked.length < 3) {
-
-    picked.push(id);
-
-    el.classList.add("selected");
-  }
-};
-
-
-/* =========================
-   ROUND 1 下一組
-   ========================= */
-
-function nextPre(round) {
-
-  const group = groups[round];
-
-  const selected = group.filter(person =>
-    picked.includes(person.id)
-  );
-
-  survivors.push(...selected);
-
-  pre(round + 1);
-}
-
-
-/* =========================
-   ROUND 2｜本選
-   ========================= */
-
-function secondRound(index) {
-  if (index >= survivors.length) {
-    if (finalists.length < 2) {
-      result(finalists);
-      return;
-    }
-    startFinalRound(finalists);
-    return;
-  }
-  const group = survivors.slice(index, index + 4);
-  let firstId = null;
-  let secondId = null;
-  app.innerHTML = `
-    <section class="screen">
-      <h2 class="title">
-        ROUND 2｜本選
-      </h2>
-      <p class="sub" style="text-align:center">
-        請選擇第一和第二喜歡的人
+        6人の中から好きな顔を選んでください<br>
+        最大4人まで。0人でもOK。
       </p>
       <div class="grid">
         ${group.map(card).join("")}
       </div>
       <div style="text-align:center">
-        <button
-          class="btn"
-          id="ok"
-          disabled
-        >
+        <button class="btn" id="ok" disabled>
           決定
         </button>
       </div>
@@ -254,269 +145,211 @@ function secondRound(index) {
   window.pick = function(id) {
     const el = document.querySelector("#p" + id);
     if (!el) return;
-    /* =========================
-       已經選過的人
-       ========================= */
-    if (id === firstId) {
-      firstId = null;
+    // 已經選了 → 取消
+    if (selected.includes(id)) {
+      selected = selected.filter(x => x !== id);
       el.classList.remove("selected");
       const mark = el.querySelector(".check");
-      if (mark) {
-        mark.textContent = "✓";
-      }
-    } else if (id === secondId) {
-      secondId = null;
-      el.classList.remove("selected");
-      const mark = el.querySelector(".check");
-      if (mark) {
-        mark.textContent = "✓";
-      }
+      if (mark) mark.textContent = "✓";
     }
-    /* =========================
-       選第1位
-       ========================= */
-    else if (firstId === null) {
-      firstId = id;
+    // 尚未選擇，而且未達4人 → 選取
+    else if (selected.length < 4) {
+      selected.push(id);
       el.classList.add("selected");
       const mark = el.querySelector(".check");
-      if (mark) {
-        mark.textContent = "①";
-      }
+      if (mark) mark.textContent = selected.length;
     }
-    /* =========================
-       選第2位
-       ========================= */
-    else if (secondId === null) {
-      secondId = id;
-      el.classList.add("selected");
-      const mark = el.querySelector(".check");
-      if (mark) {
-        mark.textContent = "②";
-      }
-    }
-    /* =========================
-       已經有兩個人
-       再點第三個
-       → 取消第2位
-       ========================= */
+    // 已經4人 → 不允許再選
     else {
-      const oldSecond =
-        document.querySelector("#p" + secondId);
-      if (oldSecond) {
-        oldSecond.classList.remove("selected");
-        const oldMark =
-          oldSecond.querySelector(".check");
-        if (oldMark) {
-          oldMark.textContent = "✓";
+      return;
+    }
+    // 0～4人都可以按決定
+    const button = document.querySelector("#ok");
+    button.disabled = false;
+    button.onclick = function() {
+      // 把選中的人加入 survivors
+      selected.forEach(id => {
+        const person = group.find(p => p.id === id);
+        if (person) {
+          survivors.push(person);
         }
+      });
+      // 下一組
+      pre(index + 1);
+    };
+  };
+  // 一開始就允許「0人」
+  const button = document.querySelector("#ok");
+  button.disabled = false;
+  button.onclick = function() {
+    selected.forEach(id => {
+      const person = group.find(p => p.id === id);
+      if (person) {
+        survivors.push(person);
       }
-      secondId = id;
-      el.classList.add("selected");
-      const mark = el.querySelector(".check");
-      if (mark) {
-        mark.textContent = "②";
-      }
-    }
-    /* =========================
-       決定按鈕
-       ========================= */
-    const button =
-      document.querySelector("#ok");
-    if (firstId !== null && secondId !== null) {
-      button.disabled = false;
-      button.onclick = function() {
-        const first =
-          group.find(p => p.id === firstId);
-        const second =
-          group.find(p => p.id === secondId);
-        finalists.push(first);
-        finalists.push(second);
-        secondRound(index + group.length);
-      };
-    } else {
-      button.disabled = true;
-      button.onclick = null;
-    }
+    });
+    pre(index + 1);
   };
 }
 
-/* =====================================================
-   ROUND 3｜最終選考
-   ===================================================== */
-
-/*
- * 這一輪不是單純淘汰。
- *
- * 會進行「比較排序」。
- *
- * 例如：
- *
- * A B C D E F G H I J
- *
- * 第一輪：
- *
- * A vs B → A
- * C vs D → D
- * E vs F → F
- * G vs H → H
- * I vs J → I
- *
- * 接著：
- *
- * 勝者組：
- * A vs D
- * F vs H
- * I 輪空
- *
- * 敗者組：
- * B vs C
- * E vs G
- * J 輪空
- *
- * 最後把比較結果整理成完整排名。
- */
-
-
 /* =========================
-   開始最終排序
+   ROUND 2｜本選
    ========================= */
 
-function startFinalRound(pool) {
-
-  const list = shuffle(pool);
-
-  mergeSortRanking(list, function(sorted) {
-
-    result(sorted);
-  });
-}
-
-
-/* =========================
-   Merge Sort 排名
-   ========================= */
-
-function mergeSortRanking(list, callback) {
-
-  if (list.length <= 1) {
-
-    callback(list);
+function secondRound(index) {
+  // 所有組別都完成
+  if (index >= survivors.length) {
+    // 沒有人進入下一輪
+    if (finalists.length === 0) {
+      result(finalists);
+      return;
+    }
+    // 進入 ROUND 3
+    startFinalRound(finalists);
     return;
   }
-
-  const middle = Math.floor(list.length / 2);
-
-  const left = list.slice(0, middle);
-  const right = list.slice(middle);
-
-  mergeSortRanking(left, function(sortedLeft) {
-
-    mergeSortRanking(right, function(sortedRight) {
-
-      mergeRanking(
-        sortedLeft,
-        sortedRight,
-        callback
-      );
-
-    });
-
-  });
-}
-
-
-/* =========================
-   兩組排名合併
-   ========================= */
-
-function mergeRanking(left, right, callback) {
-
-  const resultList = [];
-
-  let leftIndex = 0;
-  let rightIndex = 0;
-
-
-  function compareNext() {
-
-    if (leftIndex >= left.length) {
-
-      resultList.push(
-        ...right.slice(rightIndex)
-      );
-
-      callback(resultList);
-
-      return;
-    }
-
-
-    if (rightIndex >= right.length) {
-
-      resultList.push(
-        ...left.slice(leftIndex)
-      );
-
-      callback(resultList);
-
-      return;
-    }
-
-
-    const a = left[leftIndex];
-    const b = right[rightIndex];
-
-
-    app.innerHTML = `
-      <section class="screen">
-
-        <h2 class="title">
-          ROUND 3｜最終選考
-        </h2>
-
-        <p class="sub" style="text-align:center">
-          請選一位
-        </p>
-
-        <div class="grid">
-
-          ${card(a)}
-
-          ${card(b)}
-
-        </div>
-
-      </section>
-    `;
-
-
-    window.pick = function(id) {
-
-      if (id === a.id) {
-
-        resultList.push(a);
-
-        leftIndex++;
-
-      } else if (id === b.id) {
-
-        resultList.push(b);
-
-        rightIndex++;
-
-      } else {
-
-        return;
+  // 每組4人
+  const group = survivors.slice(index, index + 4);
+  let selected = [];
+  app.innerHTML = `
+    <section class="screen">
+      <h2 class="title">
+        ROUND 2｜本選
+      </h2>
+      <p class="sub" style="text-align:center">
+        4人の中から好きな顔を選んでください<br>
+        最大2人まで。0人でもOK。
+      </p>
+      <div class="grid">
+        ${group.map(card).join("")}
+      </div>
+      <div style="text-align:center">
+        <button class="btn" id="ok">
+          決定
+        </button>
+      </div>
+    </section>
+  `;
+  window.pick = function(id) {
+    const el = document.querySelector("#p" + id);
+    if (!el) return;
+    // 已經選了 → 取消
+    if (selected.includes(id)) {
+      selected = selected.filter(x => x !== id);
+      el.classList.remove("selected");
+      const mark = el.querySelector(".check");
+      if (mark) {
+        mark.textContent = "✓";
       }
-
-      compareNext();
-    };
-  }
-
-
-  compareNext();
+    }
+    // 還沒選，而且未滿2人 → 選取
+    else if (selected.length < 2) {
+      selected.push(id);
+      el.classList.add("selected");
+      const mark = el.querySelector(".check");
+      if (mark) {
+        mark.textContent = selected.length;
+      }
+    }
+    // 已經選2人，不再增加
+    else {
+      return;
+    }
+  };
+  // 決定
+  document.querySelector("#ok").onclick = function() {
+    selected.forEach(id => {
+      const person = group.find(p => p.id === id);
+      if (person) {
+        finalists.push(person);
+      }
+    });
+    // 下一組
+    secondRound(index + group.length);
+  };
 }
-
+         // ====================
+// ROUND 3｜最終選考
+// ====================
+function startFinalRound(pool) {
+  // 沒有人
+  if (pool.length === 0) {
+    result([]);
+    return;
+  }
+  // 9人以下直接進TOP
+  if (pool.length <= 9) {
+    result(pool);
+    return;
+  }
+  // 複製一份，避免直接改到原本資料
+  let candidates = [...pool];
+  // 最終TOP 9
+  let top9 = [];
+  // 開始第一輪二選一
+  finalBattle(candidates, top9);
+}
+// ====================
+// 二選一
+// ====================
+function finalBattle(candidates, top9) {
+  // 已經選滿9人
+  if (top9.length >= 9) {
+    result(top9);
+    return;
+  }
+  // 沒有人可以選
+  if (candidates.length === 0) {
+    result(top9);
+    return;
+  }
+  // 只剩一個人
+  if (candidates.length === 1) {
+    top9.push(candidates[0]);
+    result(top9);
+    return;
+  }
+  // 取前兩人進行比較
+  const person1 = candidates[0];
+  const person2 = candidates[1];
+  app.innerHTML = `
+    <section class="screen">
+      <h2 class="title">
+        ROUND 3｜最終選考
+      </h2>
+      <p class="sub" style="text-align:center">
+        どちらの顔が好き？
+      </p>
+      <div class="grid">
+        ${card(person1)}
+        ${card(person2)}
+      </div>
+    </section>
+  `;
+  window.pick = function(id) {
+    let winner;
+    if (id === person1.id) {
+      winner = person1;
+    } 
+    else if (id === person2.id) {
+      winner = person2;
+    } 
+    else {
+      return;
+    }
+    // 勝者加入TOP 9
+    top9.push(winner);
+    // 剩下的人
+    const remaining = candidates.slice(2);
+    // 如果已經9人
+    if (top9.length >= 9) {
+      result(top9);
+      return;
+    }
+    // 繼續下一組二選一
+    finalBattle(remaining, top9);
+  };
+}
 
 /* =========================
    結果
