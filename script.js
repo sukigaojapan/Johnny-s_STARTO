@@ -48,6 +48,13 @@
   { id: 46, name: "薮宏太", img: "薮宏太.jpg" },
   { id: 47, name: "岡本圭人", img: "岡本圭人.jpg" },
   { id: 48, name: "中島裕翔", img: "中島裕翔.jpg" },
+  { id: 49, name: "北山宏光", img: "北山宏光.jpg" },
+  { id: 50, name: "千賀健永", img: "千賀健永.jpg" },
+  { id: 51, name: "宮田俊哉", img: "宮田俊哉.jpg" },
+  { id: 52, name: "横尾渉", img: "横尾渉.jpg" },
+  { id: 53, name: "藤ヶ谷太輔", img: "藤ヶ谷太輔.jpg" },
+  { id: 54, name: "玉森裕太", img: "玉森裕太.jpg" },
+  { id: 55, name: "二階堂高嗣", img: "二階堂高嗣.jpg" },
 ];
 
 const app = document.querySelector("#app");
