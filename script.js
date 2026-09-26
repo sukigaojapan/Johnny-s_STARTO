@@ -79,6 +79,11 @@
   { id: 77, name: "阿部亮平", img: "阿部亮平.jpg" },
   { id: 78, name: "目黒蓮", img: "目黒蓮.jpg" },
   { id: 79, name: "宮舘涼太", img: "宮舘涼太.jpg" },
+  { id: 80, name: "佐久間大介", img: "佐久間大介.jpg" },
+  { id: 81, name: "ジェシー", img: "ジェシー.jpg" },
+  { id: 82, name: "京本大我", img: "京本大我.jpg" },
+  { id: 83, name: "松村北斗", img: "松村北斗.jpg" },
+  { id: 84, name: "佐久間大介", img: "佐久間大介.jpg" },
 ];
 
 const app = document.querySelector("#app");
