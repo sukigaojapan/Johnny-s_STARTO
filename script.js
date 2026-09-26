@@ -83,9 +83,14 @@
   { id: 81, name: "ジェシー", img: "ジェシー.jpg" },
   { id: 82, name: "京本大我", img: "京本大我.jpg" },
   { id: 83, name: "松村北斗", img: "松村北斗.jpg" },
-  { id: 84, name: "髙地優吾", img: "髙地優吾.jpg" },
+  { id: 84, name: "髙地優吾"ら, img: "髙地優吾.jpg" },
   { id: 85, name: "森本慎太郎", img: "森本慎太郎.jpg" },
   { id: 86, name: "田中樹", img: "田中樹.jpg" },
+  { id: 87, name: "橋本良亮", img: "橋本良亮.jpg" },
+  { id: 88, name: "戸塚祥太", img: "戸塚祥太.jpg" },
+  { id: 89, name: "五関晃一", img: "五関晃一.jpg" },
+  { id: 90, name: "塚田僚一", img: "塚田僚一.jpg" },
+  { id: 91, name: "河合郁人", img: "河合郁人.jpg" },
 ];
 
 const app = document.querySelector("#app");
