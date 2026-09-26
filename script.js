@@ -343,86 +343,136 @@ function secondRound(index) {
     secondRound(index + group.length);
   };
 }
-         // ====================
+// ====================
 // ROUND 3｜最終選考
 // ====================
+
 function startFinalRound(pool) {
-  // 沒有人
+
   if (pool.length === 0) {
     result([]);
     return;
   }
-  // 9人以下直接進TOP
+
+  // 不足9人就全部進TOP
   if (pool.length <= 9) {
     result(pool);
     return;
   }
-  // 複製一份，避免直接改到原本資料
-  let candidates = [...pool];
-  // 最終TOP 9
-  let top9 = [];
-  // 開始第一輪二選一
-  finalBattle(candidates, top9);
+
+  // 複製候選人
+  const candidates = [...pool];
+
+  // 開始排名
+  makeRanking(candidates, []);
 }
+
+
 // ====================
-// 二選一
+// 交叉比對排名
 // ====================
-function finalBattle(candidates, top9) {
-  // 已經選滿9人
-  if (top9.length >= 9) {
-    result(top9);
+
+function makeRanking(candidates, ranking) {
+
+  // 已經完成TOP 9
+  if (ranking.length >= 9) {
+    result(ranking);
     return;
   }
-  // 沒有人可以選
+
+  // 沒有人
   if (candidates.length === 0) {
-    result(top9);
+    result(ranking);
     return;
   }
-  // 只剩一個人
+
+  // 只剩一人
   if (candidates.length === 1) {
-    top9.push(candidates[0]);
-    result(top9);
+
+    ranking.push(candidates[0]);
+
+    result(ranking);
     return;
   }
-  // 取前兩人進行比較
-  const person1 = candidates[0];
-  const person2 = candidates[1];
+
+  // 從前兩人開始
+  const first = candidates[0];
+  const rest = candidates.slice(1);
+
+  crossBattle(first, rest, function(winner) {
+
+    // 這一輪的勝者就是目前排名
+    ranking.push(winner);
+
+    // 把勝者從候選池移除
+    const remaining = candidates.filter(
+      person => person.id !== winner.id
+    );
+
+    // 繼續找下一名
+    makeRanking(remaining, ranking);
+  });
+}
+
+
+// ====================
+// 交叉二選一
+// ====================
+
+function crossBattle(current, opponents, callback) {
+
+  // 已經沒有對手
+  if (opponents.length === 0) {
+    callback(current);
+    return;
+  }
+
+  const opponent = opponents[0];
+
   app.innerHTML = `
     <section class="screen">
+
       <h2 class="title">
         ROUND 3｜最終選考
       </h2>
+
       <p class="sub" style="text-align:center">
-        你最喜歡誰的顏？
+        どちらの顔が好き？
       </p>
+
       <div class="grid">
-        ${card(person1)}
-        ${card(person2)}
+
+        ${card(current)}
+        ${card(opponent)}
+
       </div>
+
     </section>
   `;
+
   window.pick = function(id) {
+
     let winner;
-    if (id === person1.id) {
-      winner = person1;
-    } 
-    else if (id === person2.id) {
-      winner = person2;
-    } 
+
+    if (id === current.id) {
+      winner = current;
+    }
+    else if (id === opponent.id) {
+      winner = opponent;
+    }
     else {
       return;
     }
-    // 勝者加入TOP 9
-    top9.push(winner);
-    // 剩下的人
-    const remaining = candidates.slice(2);
-    // 如果已經9人
-    if (top9.length >= 9) {
-      result(top9);
-      return;
-    }
-    // 繼續下一組二選一
-    finalBattle(remaining, top9);
+
+    // 下一個對手
+    const remainingOpponents = opponents.slice(1);
+
+    // 勝者繼續交叉
+    crossBattle(
+      winner,
+      remainingOpponents,
+      callback
+    );
   };
 }
 
