@@ -95,6 +95,11 @@
   { id: 93, name: "辰巳雄大", img: "辰巳雄大.jpg" },
   { id: 94, name: "越岡裕貴", img: "越岡裕貴.jpg" },
   { id: 95, name: "松崎祐介", img: "松崎祐介.jpg" },
+  { id: 96, name: "西畑大吾", img: "西畑大吾.jpg" },
+  { id: 97, name: "大西流星", img: "大西流星.jpg" },
+  { id: 98, name: "道枝駿佑", img: "道枝駿佑.jpg" },
+  { id: 99, name: "高橋恭平", img: "高橋恭平.jpg" },
+  { id: 100, name: "長尾謙杜", img: "長尾謙杜.jpg" },
 ];
 
 const app = document.querySelector("#app");
