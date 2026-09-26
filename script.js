@@ -55,6 +55,12 @@
   { id: 53, name: "藤ヶ谷太輔", img: "藤ヶ谷太輔.jpg" },
   { id: 54, name: "玉森裕太", img: "玉森裕太.jpg" },
   { id: 55, name: "二階堂高嗣", img: "二階堂高嗣.jpg" },
+  { id: 56, name: "佐藤勝利", img: "佐藤勝利.jpg" },
+  { id: 57, name: "菊池風磨", img: "菊池風磨.jpg" },
+  { id: 58, name: "松島聡", img: "松島聡.jpg" },
+  { id: 59, name: "寺西拓人", img: "寺西拓人.jpg" },
+  { id: 60, name: "原嘉孝", img: "原嘉孝.jpg" },
+  
 ];
 
 const app = document.querySelector("#app");
