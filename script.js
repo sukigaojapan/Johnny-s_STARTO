@@ -39,6 +39,15 @@
   { id: 37, name: "亀梨和也", img: "亀梨和也.jpg" },
   { id: 38, name: "上田竜也", img: "上田竜也.jpg" },
   { id: 39, name: "中丸雄一", img: "中丸雄一.jpg" },
+  { id: 40, name: "山田涼介", img: "山田涼介.jpg" },
+  { id: 41, name: "知念侑李", img: "知念侑李.jpg" },
+  { id: 42, name: "有岡大貴", img: "有岡大貴.jpg" },
+  { id: 43, name: "髙木雄也", img: "髙木雄也.jpg" },
+  { id: 44, name: "伊野尾慧", img: "伊野尾慧.jpg" },
+  { id: 45, name: "八乙女光", img: "八乙女光.jpg" },
+  { id: 46, name: "薮宏太", img: "薮宏太.jpg" },
+  { id: 47, name: "岡本圭人", img: "岡本圭人.jpg" },
+  { id: 48, name: "中島裕翔", img: "中島裕翔.jpg" },
 ];
 
 const app = document.querySelector("#app");
