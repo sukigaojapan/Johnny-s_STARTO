@@ -71,7 +71,8 @@
   { id: 69, name: "藤井流星", img: "藤井流星.jpg" },
   { id: 70, name: "濵田崇裕", img: "濵田崇裕.jpg" },
   { id: 71, name: "小瀧望", img: "小瀧望.jpg" },
-  
+  { id: 72, name: "岩本照", img: "岩本照.jpg" },
+  { id: 73, name: "深澤辰哉", img: "深澤辰哉.jpg" },
 ];
 
 const app = document.querySelector("#app");
