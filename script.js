@@ -30,6 +30,8 @@ const people = [
   { id: 28, name: "小山慶一郎", img: "小山慶一郎.jpg" },
   { id: 29, name: "手越祐也", img: "手越祐也.jpg" },
   { id: 30, name: "安田章大", img: "安田章大.jpg" },
+  { id: 31, name: "村上信五", img: "村上信五.jpg" },
+  { id: 32, name: "横山裕", img: "横山裕.jpg" },
 ];
 
 const app = document.querySelector("#app");
