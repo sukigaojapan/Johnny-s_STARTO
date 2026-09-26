@@ -1,4 +1,4 @@
-const people = [
+2const people = [
   { id: 0, name: "内海光司", img: "内海光司.jpg" },
   { id: 1, name: "佐藤アツヒロ", img: "佐藤アツヒロ.jpg" },
   { id: 2, name: "木村拓哉", img: "木村拓哉.jpg" },
@@ -32,6 +32,9 @@ const people = [
   { id: 30, name: "安田章大", img: "安田章大.jpg" },
   { id: 31, name: "村上信五", img: "村上信五.jpg" },
   { id: 32, name: "横山裕", img: "横山裕.jpg" },
+  { id: 33, name: "丸山隆平", img: "丸山隆平.jpg" },
+  { id: 34, name: "大倉忠義", img: "大倉忠義.jpg" },
+  { id: 35, name: "渋谷すばる", img: "渋谷すばる.jpg" },
 ];
 
 const app = document.querySelector("#app");
