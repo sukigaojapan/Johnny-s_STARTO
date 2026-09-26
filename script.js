@@ -60,6 +60,10 @@
   { id: 58, name: "松島聡", img: "松島聡.jpg" },
   { id: 59, name: "寺西拓人", img: "寺西拓人.jpg" },
   { id: 60, name: "原嘉孝", img: "原嘉孝.jpg" },
+  { id: 61, name: "橋本将生", img: "橋本将生.jpg" },
+  { id: 62, name: "篠塚大輝", img: "篠塚大輝.jpg" },
+  { id: 63, name: "マリウス葉", img: "マリウス葉.jpg" },
+  { id: 64, name: "中島健人", img: "中島健人.jpg" },
   
 ];
 
