@@ -35,6 +35,10 @@
   { id: 33, name: "丸山隆平", img: "丸山隆平.jpg" },
   { id: 34, name: "大倉忠義", img: "大倉忠義.jpg" },
   { id: 35, name: "渋谷すばる", img: "渋谷すばる.jpg" },
+  { id: 36, name: "赤西仁", img: "赤西仁.jpg" },
+  { id: 37, name: "亀梨和也", img: "亀梨和也.jpg" },
+  { id: 38, name: "上田竜也", img: "上田竜也.jpg" },
+  { id: 39, name: "中丸雄一", img: "中丸雄一.jpg" },
 ];
 
 const app = document.querySelector("#app");
