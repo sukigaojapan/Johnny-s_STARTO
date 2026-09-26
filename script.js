@@ -64,6 +64,13 @@
   { id: 62, name: "篠塚大輝", img: "篠塚大輝.jpg" },
   { id: 63, name: "マリウス葉", img: "マリウス葉.jpg" },
   { id: 64, name: "中島健人", img: "中島健人.jpg" },
+  { id: 65, name: "重岡大毅", img: "重岡大毅.jpg" },
+  { id: 66, name: "桐山照史", img: "桐山照史.jpg" },
+  { id: 67, name: "中間淳太", img: "中間淳太.jpg" },
+  { id: 68, name: "神山智洋", img: "神山智洋.jpg" },
+  { id: 69, name: "藤井流星", img: "藤井流星.jpg" },
+  { id: 70, name: "濵田崇裕", img: "濵田崇裕.jpg" },
+  { id: 71, name: "小瀧望", img: "小瀧望.jpg" },
   
 ];
 
