@@ -1,4 +1,4 @@
-2const people = [
+const people = [
   { id: 0, name: "内海光司", img: "内海光司.jpg" },
   { id: 1, name: "佐藤アツヒロ", img: "佐藤アツヒロ.jpg" },
   { id: 2, name: "木村拓哉", img: "木村拓哉.jpg" },
