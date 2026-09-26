@@ -100,6 +100,8 @@
   { id: 98, name: "道枝駿佑", img: "道枝駿佑.jpg" },
   { id: 99, name: "高橋恭平", img: "高橋恭平.jpg" },
   { id: 100, name: "長尾謙杜", img: "長尾謙杜.jpg" },
+  { id: 101, name: "藤原丈一郎", img: "藤原丈一郎.jpg" },
+  { id: 102, name: "大橋和也", img: "大橋和也.jpg" },
 ];
 
 const app = document.querySelector("#app");
