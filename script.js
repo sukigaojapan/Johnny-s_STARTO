@@ -102,6 +102,9 @@
   { id: 100, name: "長尾謙杜", img: "長尾謙杜.jpg" },
   { id: 101, name: "藤原丈一郎", img: "藤原丈一郎.jpg" },
   { id: 102, name: "大橋和也", img: "大橋和也.jpg" },
+  { id: 103, name: "宮近海斗", img: "宮近海斗.jpg" },
+  { id: 104, name: "中村海人", img: "中村海人.jpg" },
+  
 ];
 
 const app = document.querySelector("#app");
