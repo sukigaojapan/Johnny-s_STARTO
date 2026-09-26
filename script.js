@@ -73,6 +73,12 @@
   { id: 71, name: "小瀧望", img: "小瀧望.jpg" },
   { id: 72, name: "岩本照", img: "岩本照.jpg" },
   { id: 73, name: "深澤辰哉", img: "深澤辰哉.jpg" },
+  { id: 74, name: "ラウール", img: "ラウール.jpg" },
+  { id: 75, name: "渡辺翔太", img: "渡辺翔太.jpg" },
+  { id: 76, name: "向井康二", img: "向井康二.jpg" },
+  { id: 77, name: "阿部亮平", img: "阿部亮平.jpg" },
+  { id: 78, name: "目黒蓮", img: "目黒蓮.jpg" },
+  { id: 79, name: "宮舘涼太", img: "宮舘涼太.jpg" },
 ];
 
 const app = document.querySelector("#app");
