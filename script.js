@@ -109,6 +109,10 @@ const people = [
   { id: 107, name: "吉澤閑也", img: "吉澤閑也.jpg" },
   { id: 108, name: "松田元太", img: "松田元太.jpg" },
   { id: 109, name: "松倉海斗", img: "松倉海斗.jpg" },
+  { id: 110, name: "正門良規", img: "正門良規.jpg" },
+  { id: 111, name: "末澤誠也", img: "末澤誠也.jpg" },
+  { id: 112, name: "小島健", img: "小島健.jpg" },
+  { id: 113, name: "佐野晶哉", img: "佐野晶哉.jpg" },
 ];
 
 const app = document.querySelector("#app");
