@@ -117,6 +117,11 @@ const people = [
   { id: 115, name: "髙橋海人", img: "髙橋海人.jpg" },
   { id: 116, name: "生田斗真", img: "生田斗真.jpg" },
   { id: 117, name: "風間俊介", img: "風間俊介.jpg" },
+  { id: 118, name: "岩崎大昇", img: "岩崎大昇.jpg" },
+  { id: 119, name: "井上瑞稀", img: "井上瑞稀.jpg" },
+  { id: 120, name: "中村嶺亜", img: "中村嶺亜.jpg" },
+  { id: 121, name: "猪狩蒼弥", img: "猪狩蒼弥.jpg" },
+  { id: 122, name: "佐々木大光", img: "佐々木大光.jpg" },
 ];
 
 const app = document.querySelector("#app");
