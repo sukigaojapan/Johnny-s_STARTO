@@ -105,6 +105,7 @@ const people = [
   { id: 103, name: "宮近海斗", img: "宮近海斗.jpg" },
   { id: 104, name: "中村海人", img: "中村海人.jpg" },
   { id: 105, name: "七五三掛龍也", img: "七五三掛龍也.jpg" },
+  { id: 106, name: "川島如恵留", img: "川島如恵留.jpg" },
   { id: 100, name: "長尾謙杜", img: "長尾謙杜.jpg" },
 ];
 
