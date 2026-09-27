@@ -104,6 +104,7 @@ const people = [
   { id: 102, name: "大橋和也", img: "大橋和也.jpg" },
   { id: 103, name: "宮近海斗", img: "宮近海斗.jpg" },
   { id: 104, name: "中村海人", img: "中村海人.jpg" },
+  { id: 105, name: "七五三掛龍也", img: "七五三掛龍也.jpg" },
 ];
 
 const app = document.querySelector("#app");
