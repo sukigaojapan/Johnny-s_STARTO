@@ -125,6 +125,7 @@ const people = [
   { id: 123, name: "藤井直樹", img: "藤井直樹.jpg" },
   { id: 124, name: "林翔太", img: "林翔太.jpg" },
   { id: 125, name: "室龍太", img: "室龍太.jpg" },
+  { id: 126, name: "高田翔", img: "高田翔.jpg" },
 ];
 
 const app = document.querySelector("#app");
