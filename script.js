@@ -87,7 +87,7 @@ const people = [
   { id: 85, name: "森本慎太郎", img: "森本慎太郎.jpg" },
   { id: 86, name: "田中樹", img: "田中樹.jpg" },
   { id: 87, name: "橋本良亮", img: "橋本良亮.jpg" },
-  { id: 88, name: "戸塚祥太", img: "戸塚祥太.jpg" },
+  { id: 88, name: "戸塚翔太", img: "戸塚翔太.jpg" },
   { id: 89, name: "五関晃一", img: "五関晃一.jpg" },
   { id: 90, name: "塚田僚一", img: "塚田僚一.jpg" },
   { id: 91, name: "河合郁人", img: "河合郁人.jpg" },
