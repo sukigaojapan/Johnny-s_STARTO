@@ -130,7 +130,6 @@ const people = [
   { id: 128, name: "松本幸大", img: "松本幸大.jpg" },
   { id: 129, name: "冨岡健翔", img: "冨岡健翔.jpg" },
   { id: 130, name: "野澤祐樹", img: "野澤祐樹.jpg" },
-  { id: 131, name: "長谷川純", img: "長谷川純.jpg" },
 ];
 
 const app = document.querySelector("#app");
