@@ -463,7 +463,7 @@ function crossBattle(current, opponents, callback) {
       </h2>
 
       <p class="sub" style="text-align:center">
-        どちらの顔が好き？
+        你喜歡誰的臉？
       </p>
 
       <div class="grid">
